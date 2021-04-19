@@ -54,20 +54,3 @@ public class InfixToPostfix {
         return result;
     }
 }
-
-public class Addition {
-	public int addition (int a, int b) {
-		int result = a + b;
-		return result;
-				
-	}
-
-}
-
-public class Multiply {
-	public int multiply (int a, int b) {
-		int result = a * b;
-		return result;
-		
-	}
-}
