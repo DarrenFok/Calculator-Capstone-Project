@@ -6,7 +6,7 @@ import java.util.Stack;
 public class main {
 	public static void main(String[] args) {
 		Scanner sus = new Scanner(System.in);
-		System.out.println("Enter you equation here (no spaces or oafed lol):");
+		System.out.println("Enter your equation here (no spaces or you're oafed lol ( ͡° ͜ʖ ͡°)  ):");
 		String input = sus.nextLine(); // 24*14+241+17441
 		InfixToPostfix converter = new InfixToPostfix();
 		
@@ -36,8 +36,8 @@ public class main {
 				
 			} 
 			else if ("-".equals(token)) {
-				int op1 = Integer.parseInt(stack.pop());
 				int op2 = Integer.parseInt(stack.pop());
+				int op1 = Integer.parseInt(stack.pop());
 				Subtraction operation = new Subtraction();
 				int addResult = operation.execute(op1, op2);
 				stack.push(String.valueOf(addResult));
@@ -52,8 +52,8 @@ public class main {
 				
 			} 			
 			else if ("/".equals(token)) {
-				int op1 = Integer.parseInt(stack.pop());
 				int op2 = Integer.parseInt(stack.pop());
+				int op1 = Integer.parseInt(stack.pop());
 				Division operation = new Division();
 				int addResult = operation.execute(op1, op2);
 				stack.push(String.valueOf(addResult));				
