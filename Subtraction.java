@@ -1,10 +1,9 @@
 
-public class Subtraction implements BinaryOp {
+public class Subtraction  {
 
-	@Override
-	public int execute(int op1, int op2) {
-		int result = op1 - op2;
+
+	public double execute(double op1, double op2) {
+		double result = op1 - op2;
 		return result;
 	}
-
 }

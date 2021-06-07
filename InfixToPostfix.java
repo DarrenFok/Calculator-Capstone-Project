@@ -42,7 +42,6 @@ public class InfixToPostfix {
                     //If the scanned character is a closed bracket ) , then pop and output everything from stack until open bracket (
                 else if (c == ')') {
                     while (stack.peek() != '(' && !stack.isEmpty())
-                     //   result += stack.pop();
                     	result.add(String.valueOf(stack.pop()));
 
                     if (stack.peek() != '(' && !stack.isEmpty())
@@ -56,6 +55,7 @@ public class InfixToPostfix {
                     while (!stack.isEmpty() && Hierarchy(c) <= Hierarchy(stack.peek())) {
                         //result += stack.pop();
                     	result.add(String.valueOf(stack.pop()));
+                        //   result += stack.pop();
                     }
                     stack.push(c);
                 }

@@ -5,19 +5,20 @@ import java.util.Stack;
 
 public class main {
 	public static void main(String[] args) {
-		Scanner sus = new Scanner(System.in);
-		System.out.println("Enter your equation here (no spaces or you're oafed lol ( ͡° ͜ʖ ͡°)  ):");
-		String input = sus.nextLine(); // 24*14+241+17441
-		InfixToPostfix converter = new InfixToPostfix();
-		
-		
-		List<String> postFix = converter.parse(input);
+		//Allow for user input
+		Scanner scanner = new Scanner(System.in);
 
-		// debug
-		System.out.println(postFix);
-		System.out.println(evaluate(postFix));
-		// evaluate postFix expression
-		System.out.println("Postfix equation: " + converter.parse(input));
+		//Reading and storing user input
+		System.out.println("Enter your equation here:");
+		String input = scanner.nextLine();
+		String noSpace = input.replaceAll("\\s", ""); //removes all blank spaces
+
+		//infix to postfix
+		InfixToPostfix converter = new InfixToPostfix();
+		List<String> postFix = converter.parse(noSpace);
+
+		//print postfix equation and answer
+		System.out.println("Postfix equation: " + converter.parse(noSpace));
 		System.out.println("Your answer is: " + evaluate(postFix));
 	}
 
@@ -27,35 +28,35 @@ public class main {
 		// walk through postFix expression
 		for (String token : postFix) { 
 			// If operation then pop next two integers and do the operation to them
-			if ("+".equals(token)) { 
-				int op1 = Integer.parseInt(stack.pop());
-				int op2 = Integer.parseInt(stack.pop());
+			if ("+".equals(token)) {
+				double op1 = Double.parseDouble(stack.pop());
+				double op2 = Double.parseDouble(stack.pop());
 				Addition operation = new Addition();
-				int addResult = operation.execute(op1, op2);
+				double addResult = operation.execute(op1, op2);
 				stack.push(String.valueOf(addResult));
 				
 			} 
 			else if ("-".equals(token)) {
-				int op2 = Integer.parseInt(stack.pop());
-				int op1 = Integer.parseInt(stack.pop());
+				double op2 = Double.parseDouble(stack.pop());
+				double op1 = Double.parseDouble(stack.pop());
 				Subtraction operation = new Subtraction();
-				int addResult = operation.execute(op1, op2);
+				double addResult = operation.execute(op1, op2);
 				stack.push(String.valueOf(addResult));
 				
 			} 			
 			else if ("*".equals(token)) {
-				int op1 = Integer.parseInt(stack.pop());
-				int op2 = Integer.parseInt(stack.pop());
+				double op1 = Double.parseDouble(stack.pop());
+				double op2 = Double.parseDouble(stack.pop());
 				Multiplication operation = new Multiplication();
-				int addResult = operation.execute(op1, op2);
+				double addResult = operation.execute(op1, op2);
 				stack.push(String.valueOf(addResult));
 				
 			} 			
 			else if ("/".equals(token)) {
-				int op2 = Integer.parseInt(stack.pop());
-				int op1 = Integer.parseInt(stack.pop());
+				double op2 = Double.parseDouble(stack.pop());
+				double op1 = Double.parseDouble(stack.pop());
 				Division operation = new Division();
-				int addResult = operation.execute(op1, op2);
+				double addResult = operation.execute(op1, op2);
 				stack.push(String.valueOf(addResult));				
 			}else{ // push last number
 				stack.push(token);
